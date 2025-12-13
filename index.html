@@ -1,257 +1,679 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <head>
     <meta charset="UTF-8">
-    <title>Dhilip S | Electrical & Electronics Engineer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="profile.png">
-        
-</head>
+    <meta name="description" content="Portfolio of Dhilip S - Electrical & Electronics Engineer">
+    <title>Dhilip S | Electrical & Electronics Engineer</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons (Phosphor Icons for a clean look) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <style>
+        :root {
+            /* Color Palette - Cyber/Tech Theme */
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --primary: #38bdf8; /* Electric Blue */
+            --secondary: #94a3b8;
+            --text-light: #f1f5f9;
+            --text-dim: #cbd5e1;
+            --accent-glow: rgba(56, 189, 248, 0.15);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background: #f4f6f8;
-            color: #222;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* HEADER */
-        header {
-            background: #0d0d0d;
-            color: #fff;
-            padding: 25px 30px;
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
         }
 
-        .header-left {
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            gap: 20px;
+            justify-content: center;
+            padding: 0 5%;
+            padding-top: 80px;
+            background: radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 70%);
         }
 
-        .profile-img {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            border: 3px solid darkred;
-            object-fit: cover;
-        }
-
-        .header-text h1 {
-            font-size: 32px;
-        }
-
-        .header-text h3 {
-            font-weight: normal;
-            color: #ccc;
-        }
-
-        .header-text p {
-            font-size: 14px;
-            margin-top: 5px;
-        }
-
-        nav {
-            display: flex;
-            gap: 15px;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            color: #ff4d4d;
-        }
-
-        /* SECTIONS */
-        section {
-            max-width: 1100px;
-            margin: auto;
-            padding: 50px 20px;
-        }
-
-        h2 {
+        .hero-content {
             text-align: center;
-            margin-bottom: 30px;
-            color: darkred;
+            max-width: 800px;
         }
 
-        .box {
-            background: #fff;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 12px rgba(0,0,0,0.1);
-            margin-bottom: 25px;
+        .profile-pic-container {
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
         }
 
-        ul {
-            margin-left: 20px;
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid var(--primary);
+            object-fit: cover;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+            background-color: var(--bg-card); /* Fallback color */
         }
 
-        /* SKILLS */
-        .skills {
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--bg-dark);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--primary);
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--secondary);
+            color: var(--text-light);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* --- Sections General --- */
+        section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- Skills --- */
+        .skills-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            justify-content: center;
+            gap: 1rem;
         }
 
-        .skill {
-            background: darkred;
+        .skill-tag {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: 0.3s;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .skill-tag i {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        /* --- Projects (The Boxes) --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
             color: #fff;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
         }
 
-        /* FOOTER */
+        .project-desc {
+            color: var(--secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: auto;
+        }
+
+        .tech-badge {
+            font-size: 0.75rem;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--primary);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        /* --- Experience & Education Cards --- */
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .info-card.active {
+            border-left-color: var(--primary);
+        }
+
+        .info-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: baseline;
+        }
+
+        .info-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .info-subtitle {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .info-date {
+            font-size: 0.85rem;
+            color: var(--secondary);
+            font-style: italic;
+        }
+
+        /* --- Contact / Footer --- */
         footer {
-            background: #0d0d0d;
-            color: #aaa;
+            background: #0b1120;
+            padding: 4rem 5% 2rem;
             text-align: center;
-            padding: 15px;
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
 
-        /* RESPONSIVE */
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--text-dim);
+            font-size: 1.1rem;
+        }
+
+        .contact-item i {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .copyright {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+
+        /* --- Responsive Design --- */
         @media (max-width: 768px) {
-            header {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--bg-card);
                 flex-direction: column;
-                align-items: flex-start;
+                padding: 2rem;
+                text-align: center;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.5);
             }
 
-            nav {
-                margin-top: 15px;
-                flex-wrap: wrap;
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+                color: #fff;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .project-card {
+                padding: 1.5rem;
             }
         }
     </style>
 </head>
-
 <body>
 
-<header>
-    <div class="header-left">
-        <p align="center">
-  <img src="profile.jpg" alt="Dhilip S" width="150" height="150" style="border-radius:50%">
-</p>
-        <div class="header-text">
-            <h1>DHILIP S</h1>
-            <h3>Electrical and Electronics Engineer</h3>
-            <p>📧 Dhilip.dili25@gmail.com | 📞 9940986885 | 📍 Hosur</p>
-        </div>
-    </div>
-
+    <!-- Navigation -->
     <nav>
-        <a href="#profile">Profile</a>
-        <a href="#education">Education</a>
-        <a href="#internship">Internship</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#languages">Languages</a>
-    </nav>
-</header>
-
-<section id="profile">
-    <h2>Profile</h2>
-    <div class="box">
-       Electrical and Electronics Engineering student with practical, hands-on experience in
-        embedded systems programming and automation projects. Skilled in the Basic  process of designing,
-        programming, and testing microcontroller-based systems (Arduino, ESP32, PLC) and experienced with
-        E-commerce Website development and real-time systems. Strong coding foundation in 
-        C, Python, and JavaScript with a clear understanding of hardware-software integration
-    </div>
-</section>
-
-<section id="education">
-    <h2>Education</h2>
-    <div class="box">
-        <b>Er. Perumal Manimekallai College of Engineering</b><br>
-        B.E. Electrical and Electronics Engineering (2022 – 2026) — <i>Pursuing</i><br><br>
-        <b>Govt. Higher Secondary School, Nallur</b> — 12th Completed<br>
-        <b>Swami Vivekananda School</b> — 10th Completed
-    </div>
-</section>
-
-<section id="internship">
-    <h2>Internship & Certification</h2>
-    <div class="box">
-        <b>Kaynes Technology, Mysore</b><br>
-        Intern – Project management & PCB design, achieving 80% efficiency improvement.
-    </div>
-    <div class="box">
-        <b>IoT Innovation Centre</b><br>
-        SCADA & PLC automation projects with 75% operational efficiency improvement.
-    </div>
-    <div class="box">
-        <b>Arka Network Systems</b><br>
-        Advanced Python & Full Stack Development (Django, HTML, CSS, React).
-    </div>
-</section>
-
-<section id="skills">
-    <h2>Skills</h2>
-    <div class="box">
-        <div class="skills">
-            <div class="skill">Python</div>
-            <div class="skill">Java</div>
-            <div class="skill">SQL</div>
-            <div class="skill">Embedded C</div>
-            <div class="skill">IoT</div>
-            <div class="skill">SCADA / PLC</div>
-            <div class="skill">HTML & CSS</div>
-            <div class="skill">React.js</div>
+        <div class="logo">DHILIP S.</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="ph ph-list"></i>
         </div>
-    </div>
-</section>
+        <div class="nav-links">
+            <a href="#home" onclick="toggleMenu()">Home</a>
+            <a href="#about" onclick="toggleMenu()">About</a>
+            <a href="#skills" onclick="toggleMenu()">Skills</a>
+            <a href="#projects" onclick="toggleMenu()">Projects</a>
+            <a href="#experience" onclick="toggleMenu()">Experience</a>
+            <a href="#contact" onclick="toggleMenu()">Contact</a>
+        </div>
+    </nav>
 
-<section id="projects">
-    <h2>Projects</h2>
-    <div class="box">
-        <b>Electromagnetic Vehicle with Microgrid Integration (Team Leader)</b>
-        <ul>
-            <li>Electromagnetic levitation and propulsion control</li>
-            <li>Embedded systems and smart microgrid integration</li>
-        </ul>
-    </div>
-    <div class="box">
-        <b>Department Renovation with Solar & IoT Monitoring</b>
-        <ul>
-            <li>Solar power system design</li>
-            <li>ESP32-based real-time monitoring dashboard</li>
-        </ul>
-    </div>
-    <div class="box">
-        <b>E-Commerce Website (Django)</b>
-        <ul>
-            <li>User authentication and product management</li>
-            <li>Backend–frontend integration</li>
-        </ul>
-    </div>
-</section>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="profile-pic-container">
+                <!-- Added onerror to show a placeholder if your image isn't found locally -->
+                <img src="profile.jpg" 
+                     alt="Dhilip S" 
+                     class="profile-pic"
+                     onerror="this.src='https://ui-avatars.com/api/?name=Dhilip+S&background=38bdf8&color=fff&size=200'">
+            </div>
+            <h1>DHILIP S</h1>
+            <h2>Electrical & Electronics Engineer</h2>
+            <p>Bridging the gap between hardware and software. Specializing in Embedded Systems, IoT Solutions, and Full Stack Development.</p>
+            <div class="btn-group">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+        </div>
+    </section>
 
-<section id="languages">
-    <h2>Languages</h2>
-    <div class="box">
-        English (Professional) | Tamil (Fluent) | Telugu (Fluent) | Kannada (Intermediate)
-    </div>
-</section>
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="info-card active" style="max-width: 800px; margin: auto; text-align: center; border:none; background: transparent;">
+            <p style="font-size: 1.1rem; color: var(--text-dim);">
+                I am an aspiring Electrical and Electronics Engineer with a passion for innovation. 
+                My expertise spans the full lifecycle of development—from designing and testing microcontroller-based systems 
+                (Arduino, ESP32, PLC) to building robust web applications using Django and React. 
+                I thrive on solving complex problems by integrating hardware precision with software logic.
+            </p>
+        </div>
+    </section>
 
-<footer>
-    © 2025 Dhilip S | Portfolio
-</footer>
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-container">
+            <!-- Programming -->
+            <div class="skill-tag"><i class="ph ph-code"></i> Python</div>
+            <div class="skill-tag"><i class="ph ph-coffee"></i> Java</div>
+            <div class="skill-tag"><i class="ph ph-brackets-curly"></i> C / Embedded C</div>
+            <div class="skill-tag"><i class="ph ph-database"></i> SQL</div>
+            
+            <!-- Core EEE -->
+            <div class="skill-tag"><i class="ph ph-circuitry"></i> IoT & ESP32</div>
+            <div class="skill-tag"><i class="ph ph-factory"></i> SCADA / PLC</div>
+            <div class="skill-tag"><i class="ph ph-lightning"></i> Electrical Design</div>
+            
+            <!-- Web Dev -->
+            <div class="skill-tag"><i class="ph ph-globe"></i> React.js</div>
+            <div class="skill-tag"><i class="ph ph-browsers"></i> Django</div>
+            <div class="skill-tag"><i class="ph ph-html5-logo"></i> HTML & CSS</div>
+        </div>
+    </section>
 
+    <!-- Projects Section (The 3 Boxes) -->
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-icon">
+                    <i class="ph ph-car-profile"></i>
+                </div>
+                <h3 class="project-title">Electromagnetic Vehicle Integration</h3>
+                <p class="project-desc">
+                    Led a team to design an EV system featuring electromagnetic levitation and propulsion control. Integrated smart microgrid technologies for efficient energy management.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-badge">Embedded Systems</span>
+                    <span class="tech-badge">Microgrid</span>
+                    <span class="tech-badge">Team Lead</span>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-icon">
+                    <i class="ph ph-sun"></i>
+                </div>
+                <h3 class="project-title">Smart Dept. Renovation</h3>
+                <p class="project-desc">
+                    Designed a sustainable solar power system for department renovation. Implemented an ESP32-based real-time IoT dashboard for energy monitoring and analytics.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-badge">IoT</span>
+                    <span class="tech-badge">ESP32</span>
+                    <span class="tech-badge">Solar Design</span>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="project-icon">
+                    <i class="ph ph-shopping-cart"></i>
+                </div>
+                <h3 class="project-title">E-Commerce Platform</h3>
+                <p class="project-desc">
+                    Developed a full-stack e-commerce application using Django. Features include secure user authentication, product inventory management, and seamless frontend integration.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-badge">Django</span>
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">Full Stack</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Experience & Internship -->
+    <section id="experience">
+        <h2 class="section-title">Experience & Internships</h2>
+        <div class="timeline-grid">
+            <div class="info-card active">
+                <div class="info-header">
+                    <span class="info-title">Kaynes Technology, Mysore</span>
+                    <span class="info-date">Internship</span>
+                </div>
+                <div class="info-subtitle">Project Management & PCB Design</div>
+                <p style="font-size: 0.9rem; color: var(--text-dim); margin-top: 5px;">
+                    Achieved 80% efficiency improvement through optimized PCB design workflows and project management strategies.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <div class="info-header">
+                    <span class="info-title">IoT Innovation Centre</span>
+                    <span class="info-date">Internship</span>
+                </div>
+                <div class="info-subtitle">SCADA & PLC Automation</div>
+                <p style="font-size: 0.9rem; color: var(--text-dim); margin-top: 5px;">
+                    Worked on industrial automation projects, improving operational efficiency by 75% through SCADA implementation.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <div class="info-header">
+                    <span class="info-title">Arka Network Systems</span>
+                    <span class="info-date">Training</span>
+                </div>
+                <div class="info-subtitle">Full Stack Development</div>
+                <p style="font-size: 0.9rem; color: var(--text-dim); margin-top: 5px;">
+                    Advanced training in Python, Django, HTML, CSS, and React for building scalable web applications.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="timeline-grid">
+            <div class="info-card active">
+                <div class="info-header">
+                    <span class="info-title">Er. Perumal Manimekallai College of Engineering</span>
+                    <span class="info-date">2022 – 2026 (Pursuing)</span>
+                </div>
+                <div class="info-subtitle">B.E. Electrical and Electronics Engineering</div>
+            </div>
+            
+            <div class="info-card">
+                <div class="info-header">
+                    <span class="info-title">Govt. Higher Secondary School, Nallur</span>
+                    <span class="info-date">Completed</span>
+                </div>
+                <div class="info-subtitle">12th Grade (HSC)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="ph ph-envelope-simple"></i>
+                <a href="mailto:Dhilip.dili25@gmail.com" style="color: inherit; text-decoration: none;">Dhilip.dili25@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <i class="ph ph-phone"></i>
+                <span>+91 9940986885</span>
+            </div>
+            <div class="contact-item">
+                <i class="ph ph-map-pin"></i>
+                <span>Hosur, India</span>
+            </div>
+        </div>
+        
+        <div class="skills-container" style="margin-top: 2rem;">
+            <div class="skill-tag" style="background: transparent; border: 1px solid var(--secondary);">
+                English (Professional)
+            </div>
+            <div class="skill-tag" style="background: transparent; border: 1px solid var(--secondary);">
+                Tamil (Fluent)
+            </div>
+            <div class="skill-tag" style="background: transparent; border: 1px solid var(--secondary);">
+                Telugu (Fluent)
+            </div>
+             <div class="skill-tag" style="background: transparent; border: 1px solid var(--secondary);">
+                Kannada (Intermediate)
+            </div>
+        </div>
+
+        <footer>
+            <p class="copyright">© 2025 Dhilip S. Designed with <i class="ph ph-heart-fill" style="color: var(--primary)"></i> for GitHub.</p>
+        </footer>
+    </section>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // Add scroll animation for project cards
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.project-card').forEach((card) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease-out';
+            observer.observe(card);
+        });
+    </script>
 </body>
 </html>
