@@ -1,442 +1,706 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Academy - Level Up Your Future</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="Portfolio of Dhilip S - Electrical & Electronics Engineer">
+    <title>Dhilip S | Electrical & Electronics Engineer</title>
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Outfit', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            bg: '#F3E8FF', // Light Lavender Background
-                            text: '#1e1b4b', // Dark Indigo Text
-                            card: '#ffffff', // White Cards
-                            primary: '#7c3aed', // Violet 600
-                            secondary: '#db2777', // Pink 600
-                            accent: '#0891b2', // Cyan 600
-                            glow: '#c026d3', // Fuchsia
-                        }
-                    },
-                    backgroundImage: {
-                        'grid-pattern': "linear-gradient(to right, #e9d5ff 1px, transparent 1px), linear-gradient(to bottom, #e9d5ff 1px, transparent 1px)",
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'float-delayed': 'float 6s ease-in-out 3s infinite',
-                        'pulse-glow': 'pulse-glow 3s infinite',
-                        'tilt': 'tilt 10s infinite linear',
-                        'blink': 'blink 4s infinite',
-                        'wiggle': 'wiggle 2s ease-in-out infinite',
-                        'spin-slow': 'spin 8s linear infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        },
-                        'pulse-glow': {
-                            '0%, 100%': { boxShadow: '0 0 15px rgba(124, 58, 237, 0.2)' },
-                            '50%': { boxShadow: '0 0 30px rgba(124, 58, 237, 0.5)' },
-                        },
-                        blink: {
-                            '0%, 96%, 100%': { transform: 'scaleY(1)' },
-                            '98%': { transform: 'scaleY(0.1)' },
-                        },
-                        wiggle: {
-                            '0%, 100%': { transform: 'rotate(-3deg)' },
-                            '50%': { transform: 'rotate(3deg)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
     <style>
-        .glass {
-            background: rgba(255, 255, 255, 0.65);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        :root {
+            /* Professional Light Theme Palette */
+            --bg-body: #f4f6f9;       /* Light Blue-Gray Background */
+            --bg-card: #ffffff;       /* Pure White Cards */
+            --primary: #004e92;       /* Deep Engineering Blue */
+            --accent: #00a8cc;        /* Cyan/Teal for highlights */
+            --text-main: #1f2937;     /* Dark Slate for readability */
+            --text-secondary: #6b7280; /* Muted Gray */
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
-        .glass-dark {
-            background: rgba(30, 27, 75, 0.8);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: white;
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
-        .text-glow {
-            text-shadow: 0 0 20px rgba(219, 39, 119, 0.3);
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
         }
-        /* Grid background styling */
-        .bg-grid {
-            background-size: 40px 40px;
-            mask-image: linear-gradient(to bottom, transparent, 5%, white, 95%, transparent);
+
+        h1, h2, h3, .logo {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #ffffff;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text-main);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 5% 0;
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .profile-pic {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            box-shadow: 0 0 20px rgba(0, 78, 146, 0.2);
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero h2 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(0, 78, 146, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: #003366;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        /* --- Sections --- */
+        section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            margin: 10px auto 0;
+        }
+
+        /* --- Skills --- */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            background: #fff;
+            color: var(--text-main);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            box-shadow: var(--shadow);
+            border: 1px solid #e5e7eb;
+            transition: 0.3s;
+        }
+
+        .skill-tag i {
+            color: var(--accent);
+            font-size: 1.3rem;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* --- Projects (Grid) --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-top: 5px solid var(--primary);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .project-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            background: #eef2f6;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .project-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: auto;
+        }
+
+        .tech-badge {
+            font-size: 0.75rem;
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        /* --- Timeline (Education & Exp) --- */
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            border-left: 5px solid var(--accent);
+            box-shadow: var(--shadow);
+            transition: transform 0.2s;
+        }
+        
+        .info-card:hover {
+            transform: translateX(5px);
+        }
+
+        .info-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .info-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .info-date {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            background: #f3f4f6;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        .info-subtitle {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* --- Contact --- */
+        .contact-section {
+            background: #fff;
+            margin-top: 3rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-icon-box {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+
+        .contact-label {
+            display: block;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.2rem;
+        }
+
+        .contact-value {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        footer {
+            background: var(--primary);
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 0;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+                display: none;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .btn-group {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+            }
         }
     </style>
 </head>
-<body class="bg-brand-bg text-brand-text font-sans antialiased overflow-x-hidden selection:bg-brand-primary selection:text-white">
+<body>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 transition-all duration-300 top-0 pt-4" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="glass rounded-full px-6 py-3 flex justify-between items-center shadow-lg shadow-purple-500/10">
-                <!-- Logo -->
-                <a href="#home" class="flex items-center gap-2 group">
-                    <div class="w-10 h-10 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-xl flex items-center justify-center text-white shadow-lg transform group-hover:rotate-12 transition">
-                        <i class="fa-solid fa-rocket text-xl"></i>
-                    </div>
-                    <span class="font-display font-bold text-2xl tracking-tight text-brand-text">InnovGenZ<span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary"></span></span>
-                </a>
-
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8 font-medium text-sm text-slate-600">
-                    <a href="#home" class="hover:text-brand-primary transition hover:underline decoration-brand-secondary underline-offset-4">Home</a>
-                    <a href="#about" class="hover:text-brand-primary transition hover:underline decoration-brand-secondary underline-offset-4">About</a>
-                    <a href="#courses" class="hover:text-brand-primary transition hover:underline decoration-brand-secondary underline-offset-4">Courses</a>
-                    <a href="#team" class="hover:text-brand-primary transition hover:underline decoration-brand-secondary underline-offset-4">Team</a>
-                    <a href="#contact" class="px-6 py-2 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-full text-white font-bold hover:shadow-lg hover:shadow-purple-500/30 transition transform hover:-translate-y-0.5">
-                        Start Learning
-                    </a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <button class="md:hidden text-2xl text-brand-primary">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-            </div>
+    <nav>
+        <div class="logo">Dhilip S.</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="ph ph-list"></i>
+        </div>
+        <div class="nav-links">
+            <a href="#home" onclick="toggleMenu()">Home</a>
+            <a href="#about" onclick="toggleMenu()">About</a>
+            <a href="#skills" onclick="toggleMenu()">Skills</a>
+            <a href="#projects" onclick="toggleMenu()">Projects</a>
+            <a href="#experience" onclick="toggleMenu()">Experience</a>
+            <a href="#contact" onclick="toggleMenu()">Contact</a>
         </div>
     </nav>
 
-    <!-- 1. HERO SECTION -->
-    <section id="home" class="relative pt-40 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        <!-- Animated Background -->
-        <div class="absolute inset-0 -z-10 bg-grid-pattern bg-grid opacity-60"></div>
-        <div class="absolute top-20 left-10 w-72 h-72 bg-purple-300 rounded-full blur-[128px] opacity-60 animate-pulse"></div>
-        <div class="absolute bottom-20 right-10 w-96 h-96 bg-pink-300 rounded-full blur-[128px] opacity-60"></div>
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <img src="profile.jpg" 
+                 alt="Dhilip S" 
+                 class="profile-pic"
+                 onerror="this.src='https://ui-avatars.com/api/?name=Dhilip+S&background=004e92&color=fff&size=200'">
+            <h1>DHILIP S</h1>
+            <h2>Electrical & Electronics Engineer</h2>
+            <p>Bridging the gap between hardware and software. Specializing in Embedded Systems, IoT Solutions, and Full Stack Development.</p>
+            <div class="btn-group">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+        </div>
+    </section>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-16 relative z-10">
-            <!-- Text Content -->
-            <div class="lg:w-1/2 text-center lg:text-left">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-purple-200 bg-white/50 text-brand-primary text-sm font-bold mb-6 backdrop-blur-sm shadow-sm">
-                    <span class="relative flex h-2 w-2">
-                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-primary opacity-75"></span>
-                      <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-primary"></span>
-                    </span>
-                    Now Enrolling School & College Students
+    <!-- About -->
+    <section id="about">
+        <h2 class="section-title">Professional Summary</h2>
+        <div class="info-card" style="border-left: none; text-align: center; max-width: 800px; margin: 0 auto; background: transparent; box-shadow: none;">
+            <p style="font-size: 1.1rem; color: var(--text-secondary);">
+                Aspiring Electrical and Electronics Engineer with a passion for innovation. 
+                My expertise spans the full lifecycle of development—from designing and testing microcontroller-based systems 
+                (Arduino, ESP32, PLC) to building robust web applications using Django and React. 
+                I thrive on solving complex problems by integrating hardware precision with software logic.
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" style="background: #fff;">
+        <h2 class="section-title">Technical Expertise</h2>
+        <div class="skills-container">
+            <div class="skill-tag"><i class="ph ph-code"></i> Python</div>
+            <div class="skill-tag"><i class="ph ph-coffee"></i> Java</div>
+            <div class="skill-tag"><i class="ph ph-brackets-curly"></i> C / Embedded C</div>
+            <div class="skill-tag"><i class="ph ph-database"></i> SQL</div>
+            <div class="skill-tag"><i class="ph ph-circuitry"></i> IoT & ESP32</div>
+            <div class="skill-tag"><i class="ph ph-factory"></i> SCADA / PLC</div>
+            <div class="skill-tag"><i class="ph ph-lightning"></i> Electrical Design</div>
+            <div class="skill-tag"><i class="ph ph-globe"></i> React.js</div>
+            <div class="skill-tag"><i class="ph ph-browsers"></i> Django</div>
+            <div class="skill-tag"><i class="ph ph-html5-logo"></i> HTML & CSS</div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <div class="project-icon">
+                    <i class="ph ph-car-profile"></i>
                 </div>
-                <h1 class="font-display text-5xl lg:text-7xl font-bold leading-tight mb-6 text-brand-text">
-                    Future Skilols For<br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-glow text-glow">Future Leaders</span>
-                </h1>
-                <p class="text-lg text-slate-600 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed font-light">
-                    Join the ultimate tech club for students. Build <strong>Smart Robots</strong>, code <strong>Websites</strong>, and master <strong>English</strong> confidence.
+                <h3 class="project-title">EV Integration</h3>
+                <p class="project-desc">
+                    Led a team to design an EV system featuring electromagnetic levitation and propulsion control. Integrated smart microgrid technologies for efficient energy management.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                    <a href="#courses" class="px-8 py-4 bg-white text-brand-primary rounded-xl font-bold transition hover:bg-purple-50 flex items-center justify-center gap-2 shadow-xl shadow-purple-100 border border-purple-100">
-                        Explore Courses <i class="fa-solid fa-gamepad"></i>
-                    </a>
-                    <a href="#contact" class="px-8 py-4 glass text-brand-text rounded-xl font-bold transition hover:bg-white flex items-center justify-center gap-2">
-                        Get Syllabus <i class="fa-solid fa-download"></i>
-                    </a>
+                <div class="project-tech">
+                    <span class="tech-badge">Embedded Systems</span>
+                    <span class="tech-badge">Microgrid</span>
                 </div>
-                
-                <!-- Stats Strip -->
-                <div class="mt-10 flex items-center justify-center lg:justify-start gap-8 text-sm font-medium text-slate-500">
-                    <div class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-brand-primary"></i> Beginner Friendly</div>
-                    <div class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-brand-secondary"></i> Live Projects</div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">
+                    <i class="ph ph-sun"></i>
                 </div>
+                <h3 class="project-title">Smart Renovation</h3>
+                <p class="project-desc">
+                    Designed a sustainable solar power system for department renovation. Implemented an ESP32-based real-time IoT dashboard for energy monitoring.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-badge">IoT</span>
+                    <span class="tech-badge">ESP32</span>
+                    <span class="tech-badge">Solar</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">
+                    <i class="ph ph-shopping-cart"></i>
+                </div>
+                <h3 class="project-title">E-Commerce App</h3>
+                <p class="project-desc">
+                    Developed a full-stack e-commerce application using Django. Features include secure user authentication, product inventory management, and backend integration.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-badge">Django</span>
+                    <span class="tech-badge">Full Stack</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" style="background: #fff;">
+        <h2 class="section-title">Experience & Internships</h2>
+        <div class="timeline-grid">
+            
+            <div class="info-card">
+                <div class="info-header">
+                    <span class="info-title">Kaynes Technology, Mysore</span>
+                    <span class="info-date">Internship</span>
+                </div>
+                <span class="info-subtitle">Project Management & PCB Design</span>
+                <p style="font-size: 0.95rem; color: var(--text-secondary);">
+                    Achieved 80% efficiency improvement through optimized PCB design workflows and project management strategies.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <div class="info-header">
+                    <span class="info-title">IoT Innovation Centre</span>
+                    <span class="info-date">Internship</span>
+                </div>
+                <span class="info-subtitle">SCADA & PLC Automation</span>
+                <p style="font-size: 0.95rem; color: var(--text-secondary);">
+                    Worked on industrial automation projects, improving operational efficiency by 75% through SCADA implementation.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <div class="info-header">
+                    <span class="info-title">Arka Network Systems</span>
+                    <span class="info-date">Training</span>
+                </div>
+                <span class="info-subtitle">Full Stack Development</span>
+                <p style="font-size: 0.95rem; color: var(--text-secondary);">
+                    Advanced training in Python, Django, HTML, CSS, and React for building scalable web applications.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="timeline-grid">
+            <div class="info-card">
+                <div class="info-header">
+                    <span class="info-title">Er. Perumal Manimekallai College of Engineering</span>
+                    <span class="info-date">2022 – 2026</span>
+                </div>
+                <span class="info-subtitle">B.E. Electrical and Electronics Engineering</span>
+                <p style="font-size: 0.9rem; color: var(--text-secondary);">Pursuing</p>
             </div>
             
-            <!-- Hero Visual: Colorful Robot & Floating Project Image -->
-            <div class="lg:w-1/2 relative flex justify-center items-center perspective-1000">
-                <div class="absolute inset-0 bg-gradient-to-tr from-brand-primary/20 to-brand-secondary/20 blur-3xl opacity-60 rounded-full"></div>
-                
-                <!-- TOP RIGHT IMAGE: Man Testing Car Project -->
-                <div class="absolute -top-10 -right-4 md:-right-10 z-20 w-48 h-32 rounded-2xl overflow-hidden shadow-2xl border-4 border-white animate-float-delayed transform rotate-3">
-                    <div class="absolute top-2 left-2 bg-black/60 text-white text-[10px] font-bold px-2 py-1 rounded backdrop-blur-md">
-                        <i class="fa-solid fa-car-side"></i> Student Project
-                    </div>
-                    <!-- Placeholder for Man Testing Car -->
-                    <img src="https://images.unsplash.com/photo-1517154596051-c2b59193d41e?q=80&w=2070&auto=format&fit=crop" alt="Man testing car project" class="object-cover w-full h-full hover:scale-110 transition duration-700">
+            <div class="info-card">
+                <div class="info-header">
+                    <span class="info-title">Govt. Higher Secondary School, Nallur</span>
+                    <span class="info-date">Completed</span>
                 </div>
-
-                <!-- Robot Toy Container -->
-                <div class="relative animate-float transform transition-all duration-500 hover:scale-105 mt-10">
-                    <!-- Antenna -->
-                    <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 w-2 h-12 bg-slate-300 z-0"></div>
-                    <div class="absolute -top-16 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-brand-secondary rounded-full shadow-[0_0_15px_rgba(219,39,119,0.5)] animate-pulse z-0"></div>
-
-                    <!-- Head -->
-                    <div class="relative w-64 h-56 bg-white rounded-[3rem] shadow-[0_20px_50px_rgba(124,58,237,0.15)] border-b-8 border-purple-100 z-10 flex flex-col items-center justify-center p-4 overflow-hidden ring-4 ring-white/60">
-                        <!-- Screen Face -->
-                        <div class="w-full h-full bg-slate-900 rounded-[2.5rem] flex flex-col items-center justify-center border-4 border-slate-800 relative overflow-hidden shadow-inner">
-                            <!-- Glare -->
-                            <div class="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-gradient-to-br from-white/10 to-transparent rotate-45 pointer-events-none"></div>
-                            
-                            <!-- Eyes -->
-                            <div class="flex gap-8 mb-4 animate-blink">
-                                <div class="w-12 h-12 bg-brand-accent rounded-full shadow-[0_0_20px_rgba(8,145,178,0.8)]"></div>
-                                <div class="w-12 h-12 bg-brand-accent rounded-full shadow-[0_0_20px_rgba(8,145,178,0.8)]"></div>
-                            </div>
-                            
-                            <!-- Mouth / Text -->
-                            <div class="bg-slate-800 px-4 py-1 rounded-full border border-slate-700 mt-2">
-                                <span class="font-mono text-brand-glow text-sm typing-text animate-pulse">Hello Friend!</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Body/Base Hint -->
-                    <div class="absolute -bottom-10 left-1/2 transform -translate-x-1/2 w-40 h-20 bg-slate-200 rounded-b-full -z-10 shadow-xl border-t-4 border-slate-300"></div>
-                    
-                    <!-- Floating Icons around Robot -->
-                    <div class="absolute -right-12 top-0 bg-white p-3 rounded-2xl shadow-lg shadow-purple-200 animate-wiggle" style="animation-delay: 0.5s;">
-                        <i class="fa-solid fa-wifi text-3xl text-brand-primary"></i>
-                    </div>
-                    <div class="absolute -left-8 bottom-10 bg-white p-3 rounded-2xl shadow-lg shadow-purple-200 animate-wiggle" style="animation-delay: 1s;">
-                        <i class="fa-solid fa-gear text-3xl text-brand-secondary animate-spin-slow"></i>
-                    </div>
-                    <div class="absolute right-0 -bottom-8 bg-white p-3 rounded-2xl shadow-lg shadow-purple-200 animate-wiggle" style="animation-delay: 1.5s;">
-                        <i class="fa-brands fa-python text-3xl text-yellow-500"></i>
-                    </div>
-                </div>
+                <span class="info-subtitle">12th Grade (HSC)</span>
             </div>
         </div>
     </section>
 
-    <!-- 2. FEATURES GRID -->
-    <section id="about" class="py-20 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass p-8 rounded-3xl border-t-4 border-brand-primary relative overflow-hidden group hover:-translate-y-2 transition duration-300">
-                    <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-brand-primary/10 rounded-full blur-2xl group-hover:bg-brand-primary/20 transition"></div>
-                    <div class="w-14 h-14 bg-brand-primary/10 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-rocket text-3xl text-brand-primary"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-brand-text">Build Real Stuff</h3>
-                    <p class="text-slate-600 text-sm">No boring books. You'll get your own kit to build robots and smart gadgets from day one.</p>
+    <!-- Contact -->
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-item">
+                <div class="contact-icon-box">
+                    <i class="ph ph-envelope-simple"></i>
                 </div>
-                <div class="glass p-8 rounded-3xl border-t-4 border-brand-secondary relative overflow-hidden group hover:-translate-y-2 transition duration-300">
-                    <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-brand-secondary/10 rounded-full blur-2xl group-hover:bg-brand-secondary/20 transition"></div>
-                    <div class="w-14 h-14 bg-brand-secondary/10 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-code text-3xl text-brand-secondary"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-brand-text">Code Like a Pro</h3>
-                    <p class="text-slate-600 text-sm">Learn the languages that run the world: Python, C++, HTML. It's like a superpower.</p>
+                <span class="contact-label">Email</span>
+                <a href="mailto:Dhilip.dili25@gmail.com" class="contact-value">Dhilip.dili25@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon-box">
+                    <i class="ph ph-phone"></i>
                 </div>
-                <div class="glass p-8 rounded-3xl border-t-4 border-brand-accent relative overflow-hidden group hover:-translate-y-2 transition duration-300">
-                    <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-brand-accent/10 rounded-full blur-2xl group-hover:bg-brand-accent/20 transition"></div>
-                    <div class="w-14 h-14 bg-brand-accent/10 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-microphone-lines text-3xl text-brand-accent"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-brand-text">Speak With Confidence</h3>
-                    <p class="text-slate-600 text-sm">Present your projects to the world. We help you find your voice and lead the team.</p>
+                <span class="contact-label">Phone</span>
+                <span class="contact-value">+91 9940986885</span>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon-box">
+                    <i class="ph ph-map-pin"></i>
                 </div>
+                <span class="contact-label">Location</span>
+                <span class="contact-value">Hosur, India</span>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <p style="color: var(--text-secondary); margin-bottom: 1rem; font-weight: 600;">Languages</p>
+            <div class="skills-container">
+                <span class="tech-badge" style="background: #eee; color: #555;">English (Professional)</span>
+                <span class="tech-badge" style="background: #eee; color: #555;">Tamil (Fluent)</span>
+                <span class="tech-badge" style="background: #eee; color: #555;">Telugu (Fluent)</span>
+                <span class="tech-badge" style="background: #eee; color: #555;">Kannada (Intermediate)</span>
             </div>
         </div>
     </section>
 
-    <!-- 3. COURSES SECTION -->
-    <section id="courses" class="py-24 relative">
-        <div class="absolute inset-0 bg-white/40 -z-10"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="text-brand-primary font-bold tracking-wider text-sm uppercase">Choose Your Adventure</span>
-                <h2 class="font-display text-4xl lg:text-5xl font-bold mt-2 mb-4 text-brand-text">Our Tech Labs</h2>
-                <p class="text-slate-600">Pick a skill and start your journey to becoming an inventor.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                
-                <!-- IoT Lab Card -->
-                <div class="glass rounded-3xl overflow-hidden group hover:shadow-xl hover:shadow-cyan-100 transition border border-white/50 bg-white">
-                    <div class="h-40 bg-gradient-to-br from-cyan-50 to-cyan-100 relative flex items-center justify-center overflow-hidden">
-                        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/circuit-board.png')] opacity-10"></div>
-                        <i class="fa-solid fa-robot text-6xl text-brand-accent transform group-hover:scale-110 transition duration-500 drop-shadow-md"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-1 text-brand-text">Real-time IoT</h3>
-                        <p class="text-xs text-brand-accent font-bold mb-3 uppercase">Hardware Lab</p>
-                        <p class="text-slate-600 text-sm mb-4">Build a smart home system using sensors, Arduino & ESP32. Control lights with your phone!</p>
-                        <ul class="text-xs text-slate-500 mb-4 space-y-1">
-                            <li><i class="fa-solid fa-check text-brand-accent"></i> Electronics Basics</li>
-                            <li><i class="fa-solid fa-check text-brand-accent"></i> WiFi Control</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Web Dev Card -->
-                <div class="glass rounded-3xl overflow-hidden group hover:shadow-xl hover:shadow-purple-100 transition border border-white/50 bg-white">
-                    <div class="h-40 bg-gradient-to-br from-purple-50 to-purple-100 relative flex items-center justify-center overflow-hidden">
-                        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-                        <i class="fa-solid fa-globe text-6xl text-brand-secondary transform group-hover:scale-110 transition duration-500 drop-shadow-md"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-1 text-brand-text">Fullstack Dev</h3>
-                        <p class="text-xs text-brand-secondary font-bold mb-3 uppercase">Coding Lab</p>
-                        <p class="text-slate-600 text-sm mb-4">Create your own website and apps. Learn HTML, CSS, and how to put your ideas online.</p>
-                        <ul class="text-xs text-slate-500 mb-4 space-y-1">
-                            <li><i class="fa-solid fa-check text-brand-secondary"></i> Build Websites</li>
-                            <li><i class="fa-solid fa-check text-brand-secondary"></i> React & Node.js</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Computer Basics Card -->
-                <div class="glass rounded-3xl overflow-hidden group hover:shadow-xl hover:shadow-blue-100 transition border border-white/50 bg-white">
-                    <div class="h-40 bg-gradient-to-br from-blue-50 to-blue-100 relative flex items-center justify-center overflow-hidden">
-                        <i class="fa-brands fa-microsoft text-6xl text-blue-500 transform group-hover:scale-110 transition duration-500 drop-shadow-md"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-1 text-brand-text">Computer Basics</h3>
-                        <p class="text-xs text-blue-500 font-bold mb-3 uppercase">Office Lab</p>
-                        <p class="text-slate-600 text-sm mb-4">Master Word, Excel & PowerPoint. Essential skills for finishing school projects like a boss.</p>
-                        <ul class="text-xs text-slate-500 mb-4 space-y-1">
-                            <li><i class="fa-solid fa-check text-blue-500"></i> Presentations</li>
-                            <li><i class="fa-solid fa-check text-blue-500"></i> Spreadsheets</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- English Card -->
-                <div class="glass rounded-3xl overflow-hidden group hover:shadow-xl hover:shadow-pink-100 transition border border-white/50 bg-white">
-                    <div class="h-40 bg-gradient-to-br from-pink-50 to-pink-100 relative flex items-center justify-center overflow-hidden">
-                        <i class="fa-solid fa-comments text-6xl text-brand-glow transform group-hover:scale-110 transition duration-500 drop-shadow-md"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-1 text-brand-text">Spoken English</h3>
-                        <p class="text-xs text-brand-glow font-bold mb-3 uppercase">Communication Lab</p>
-                        <p class="text-slate-600 text-sm mb-4">Stop being shy! Learn to speak fluently and give amazing presentations in class.</p>
-                        <ul class="text-xs text-slate-500 mb-4 space-y-1">
-                            <li><i class="fa-solid fa-check text-brand-glow"></i> Public Speaking</li>
-                            <li><i class="fa-solid fa-check text-brand-glow"></i> Interviews</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. TEAM SECTION -->
-    <section id="team" class="py-24 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
-                <div>
-                    <h2 class="font-display text-4xl font-bold text-brand-text">Your Mentors</h2>
-                    <p class="text-slate-600 mt-2">Cool engineers who love to teach.</p>
-                </div>
-                <button class="text-brand-primary font-bold hover:text-brand-secondary transition flex items-center gap-2">Join the team <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-
-            <div class="grid md:grid-cols-4 gap-6">
-                <!-- Mentor 1 -->
-                <div class="glass p-6 rounded-2xl text-center hover:bg-white transition group border border-white/50">
-                    <div class="w-24 h-24 mx-auto bg-gradient-to-br from-blue-100 to-blue-200 rounded-full mb-3 flex items-center justify-center text-3xl overflow-hidden border-4 border-white shadow-md">
-                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Alex&backgroundColor=b6e3f4" alt="Alex">
-                    </div>
-                    <h4 class="font-bold text-brand-text">Alex Johnson</h4>
-                    <p class="text-xs text-brand-accent font-bold uppercase tracking-wide">IoT Expert</p>
-                </div>
-                <!-- Mentor 2 -->
-                <div class="glass p-6 rounded-2xl text-center hover:bg-white transition group border border-white/50">
-                    <div class="w-24 h-24 mx-auto bg-gradient-to-br from-purple-100 to-purple-200 rounded-full mb-3 flex items-center justify-center text-3xl overflow-hidden border-4 border-white shadow-md">
-                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah&backgroundColor=ffdfbf" alt="Sarah">
-                    </div>
-                    <h4 class="font-bold text-brand-text">Sarah Chen</h4>
-                    <p class="text-xs text-brand-secondary font-bold uppercase tracking-wide">Coding Wizard</p>
-                </div>
-                <!-- Mentor 3 -->
-                <div class="glass p-6 rounded-2xl text-center hover:bg-white transition group border border-white/50">
-                    <div class="w-24 h-24 mx-auto bg-gradient-to-br from-green-100 to-green-200 rounded-full mb-3 flex items-center justify-center text-3xl overflow-hidden border-4 border-white shadow-md">
-                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Mike&backgroundColor=c0aede" alt="Mike">
-                    </div>
-                    <h4 class="font-bold text-brand-text">Mike Ross</h4>
-                    <p class="text-xs text-green-600 font-bold uppercase tracking-wide">English Coach</p>
-                </div>
-                <!-- Mentor 4 -->
-                <div class="glass p-6 rounded-2xl text-center hover:bg-white transition group border border-white/50">
-                    <div class="w-24 h-24 mx-auto bg-gradient-to-br from-orange-100 to-orange-200 rounded-full mb-3 flex items-center justify-center text-3xl overflow-hidden border-4 border-white shadow-md">
-                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Priya&backgroundColor=ffdfbf" alt="Priya">
-                    </div>
-                    <h4 class="font-bold text-brand-text">Priya Patel</h4>
-                    <p class="text-xs text-orange-500 font-bold uppercase tracking-wide">Career Guide</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. CONTACT / FOOTER -->
-    <footer id="contact" class="bg-brand-text pt-20 pb-10 border-t border-white/10 relative text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="glass-dark rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-10 mb-16 relative overflow-hidden shadow-2xl">
-                <div class="absolute inset-0 bg-gradient-to-r from-brand-primary/40 to-brand-secondary/40 blur-xl"></div>
-                <div class="relative z-10">
-                    <h2 class="text-3xl font-bold mb-2 text-white">Ready to Start?</h2>
-                    <p class="text-purple-200">Book a free demo class for your school today.</p>
-                </div>
-                <form class="relative z-10 flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-                    <input type="email" placeholder="Your Email Address" class="px-6 py-3 rounded-xl bg-white/10 border border-white/20 focus:border-brand-primary focus:outline-none text-white w-full sm:w-64 placeholder-purple-300">
-                    <button class="px-8 py-3 bg-brand-primary hover:bg-brand-secondary text-white font-bold rounded-xl transition shadow-lg shadow-brand-primary/25">
-                        Get Started
-                    </button>
-                </form>
-            </div>
-
-            <!-- Contact Details Grid (ADDED) -->
-            <div class="grid md:grid-cols-3 gap-8 mb-12 border-b border-white/10 pb-12">
-                <div class="text-center group">
-                    <div class="w-12 h-12 mx-auto bg-white/10 group-hover:bg-brand-primary/20 transition rounded-full flex items-center justify-center text-brand-primary mb-4 text-xl">
-                        <i class="fa-solid fa-envelope"></i>
-                    </div>
-                    <h4 class="text-white font-bold mb-1">Email Us</h4>
-                    <p class="text-purple-200 text-sm">hello@skillforge.com</p>
-                </div>
-                <div class="text-center group">
-                    <div class="w-12 h-12 mx-auto bg-white/10 group-hover:bg-brand-secondary/20 transition rounded-full flex items-center justify-center text-brand-secondary mb-4 text-xl">
-                        <i class="fa-solid fa-phone"></i>
-                    </div>
-                    <h4 class="text-white font-bold mb-1">Call Us</h4>
-                    <p class="text-purple-200 text-sm">+91 98765 43210</p>
-                </div>
-                <div class="text-center group">
-                    <div class="w-12 h-12 mx-auto bg-white/10 group-hover:bg-brand-accent/20 transition rounded-full flex items-center justify-center text-brand-accent mb-4 text-xl">
-                        <i class="fa-solid fa-location-dot"></i>
-                    </div>
-                    <h4 class="text-white font-bold mb-1">Visit Us</h4>
-                    <p class="text-purple-200 text-sm">123 Tech Park, Innovation City</p>
-                </div>
-            </div>
-
-            <div class="flex flex-col md:flex-row justify-between items-center text-sm text-purple-300">
-                <div class="flex items-center gap-2 mb-4 md:mb-0">
-                    <div class="w-8 h-8 bg-white text-brand-text rounded-lg flex items-center justify-center font-bold">SF</div>
-                    <span>© 2024 SkillForge Academy</span>
-                </div>
-                <div class="flex gap-6">
-                    <a href="#" class="hover:text-white transition">Instagram</a>
-                    <a href="#" class="hover:text-white transition">Twitter</a>
-                    <a href="#" class="hover:text-white transition">LinkedIn</a>
-                </div>
-            </div>
-        </div>
+    <footer>
+        <p>© 2025 Dhilip S. All Rights Reserved.</p>
     </footer>
 
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // Simple Intersection Observer for scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.project-card, .info-card').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
